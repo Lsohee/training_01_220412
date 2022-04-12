@@ -21,38 +21,72 @@
 /* 원들은 #one>div:nth-child(2)를 3을로 나누어 각각 왼쪽과 오른쪽 div으로 해결해 보기로 함 */
 
 
+/* 
+질문 1
+
+무엇을 - #one의 자식 div두개를
+어떻게 하고싶어서 - #one에 꽉 채워서 20대 80으로 나누고 싶음
+이렇게 했는데 - 각각 height값에 20% 와 80%를 부여
+이렇게 됨  - 꽉차게 쪼개지지않고 밑에 공간이 남음 (개발자도구로 확인해본결과 #one의 남은 공간임)
+
+*one의 자식 div의 안에 div을 넣었더니 남은 공간이 사라짐 - ?
+*/ 
+
 /* menu */
 #one>div:nth-child(1){
   width:100%;
+  height: 15%;
+  display: flex;
+  align-items: end;
+  background-color: aliceblue;
+}
+
+
+#one>div:nth-child(1)>div{
+  width: 10%;
   height: 20%;
+  text-align: center;
+}
+
+
+#one>div:nth-child(1)>div:nth-child(n+2){
+  position: relative;
+  left:50%;
 }
 
 
 
-/* 무엇을 - #one의 자식 div두개를
-어떻게 하고싶어서 - #one에 꽉 채워서 20대 80으로 나누고 싶음
-이렇게 했는데 - 각각 height값에 20% 와 80%를 부여
-이렇게 됨  - 꽉차게 쪼개지지않고 밑에 공간이 남음 (개발자도구로 확인해본결과 #one의 남은 공간임)*/ 
+
+
+
 /* main */
 #one>div:nth-child(2){
   width:100%;
-  height: 80%;
+  height: 85%;
   display: flex;
 }
+/* 가로 배치를 위해 display:flex;를 사용하면 원을 화면밖으로 넘길 수 없음 
+--> 반원을 그릴 수 있는 방법을 찾거나 일일히 position 값으로 설정해 줘야함
+--> 잘린 원을 표현할 수 있는 방법을 찾아보기로함 
+
+
+*/
 
 #one>div:nth-child(2)>div:nth-child(1){
-  width:100%;
-  height:30%;
+  width:20%;
+  height:100%;
+  border-radius: 15%;
 }
 
 
 #one>div:nth-child(2)>div:nth-child(2){
-  width:100%;
-  height:30%;
+  width:50%;
+  height:100%;
 }
 
 
 #one>div:nth-child(2)>div:nth-child(3){
-  width:100%;
-  height:30%;
+  border-radius: 15%;
+  width:30%;
+  height:100%;
 }
