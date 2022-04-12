@@ -95,8 +95,13 @@ z-index는 position의 하위 속성임으로 position을 주어야 작동한다
 #one>div:nth-child(2)>div:nth-child(2){
   width:100%;
   height:100%;
+  position: relative;
+  z-index: 6;
 }
 
+
+/* z-index의 숫자가 같으면 같은 z선상에 서있는건가?
+그러면 겹치지 않는다면 다른 요소에 같은 숫자를 써도 되나? */
 #one>div:nth-child(2)>div:nth-child(2)>div:nth-child(1){
   width:fit-content;
   height:fit-content;
